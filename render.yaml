@@ -1,0 +1,27 @@
+# Example Render service manifest (template) — edit values before use
+services:
+  - type: web
+    name: backend1
+    env: docker
+    plan: free # set to appropriate plan
+    repo: https://github.com/telmotini77/backend1
+    branch: main
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: "production"
+      - key: DB_HOST
+        fromDatabase:
+          name: "POSTGRES_DB"
+      - key: DB_USERNAME
+        fromDatabase:
+          name: "POSTGRES_USER"
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: "POSTGRES_PASSWORD"
+      - key: DB_DATABASE
+        value: "backend1_prod"
+      - key: JWT_SECRET
+        value: "<REPLACE_WITH_STRONG_SECRET>"
+      - key: CORS_ORIGIN
+        value: "https://your-frontend.example.com"
