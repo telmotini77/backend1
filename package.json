@@ -88,7 +88,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "main": "index.js",
+  "main": "dist/main.js",
   "directories": {
     "test": "test"
   },
